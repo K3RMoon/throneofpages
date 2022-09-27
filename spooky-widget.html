@@ -1,0 +1,63 @@
+
+<div class="container" style="height: fit-content; width: fit-content; position: relative">
+    <img src="https://cdn.discordapp.com/attachments/841437430556524565/1024317271063134260/halloween_bingo.png" style="width: 100%">
+    <img id="pi-1" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 28%; left: 14%;">
+    <img id="pi-2" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 28%; left: 29%;">
+    <img id="pi-3" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 28%; left: 44%;">
+    <img id="pi-4" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 28%; left: 59%;">
+    <img id="pi-5" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 28%; left: 74%;">
+    <img id="pi-6" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 41%; left: 14%;">
+    <img id="pi-7" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 41%; left: 29%;">
+    <img id="pi-8" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 41%; left: 44%;">
+    <img id="pi-9" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 41%; left: 59%;">
+    <img id="pi-10" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 41%; left: 74%;">
+    <img id="pi-11" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 54%; left: 14%;">
+    <img id="pi-12" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 54%; left: 29%;">
+    <img id="pi-13" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 54%; left: 59%;">
+    <img id="pi-14" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 54%; left: 74%;">
+    <img id="pi-15" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 67%; left: 14%;">
+    <img id="pi-16" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 67%; left: 29%;">
+    <img id="pi-17" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 67%; left: 44%;">
+    <img id="pi-18" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 67%; left: 59%;">
+    <img id="pi-19" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 67%; left: 74%;">
+    <img id="pi-20" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 80%; left: 14%;">
+    <img id="pi-21" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 80%; left: 29%;">
+    <img id="pi-22" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 80%; left: 44%;">
+    <img id="pi-23" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 80%; left: 59%;">
+    <img id="pi-24" class="campfire-icon" onclick="boxClicked(event)" src="https://freepngimg.com/save/22407-halloween-pumpkin-hd/512x512" style="top: 80%; left: 74%;">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(window).on('load', function(){
+        for(let i = 1; i < 25; i++){
+            let element = localStorage.getItem('pi-' + i);
+            if(element === 'on'){
+                $('#pi-'+i).addClass('on');
+            }
+        }
+    });
+
+    function boxClicked(event){
+        let box = $(event.target);
+        let id = box.attr('id');
+        if(box.hasClass('on')){
+            box.removeClass('on');
+            localStorage.removeItem(id);
+        } else {
+            box.addClass('on');
+            localStorage.setItem(id, "on");
+        }
+    }
+</script>
+<style>
+    .campfire-icon {
+        opacity: 0%;
+        width: 12%; 
+        position: absolute; 
+        cursor: pointer;
+    }
+
+    .campfire-icon.on {
+        opacity: 75%;
+    }
+</style>
