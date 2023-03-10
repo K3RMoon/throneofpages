@@ -1,0 +1,52 @@
+<html>
+    <div class="container" style="height: fit-content; width: fit-content; position: relative">
+        <img src="word-search.png" style="width: 100%">
+        <img id="pi-1" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 32%; left: 8%;">
+        <img id="pi-2" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 32%; left: 31%;">
+        <img id="pi-3" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 32%; left: 54%;">
+        <img id="pi-4" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 32%; left: 78%;">
+        <img id="pi-5" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 49.5%; left: 8%;">
+        <img id="pi-6" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 49.5%; left: 31%;">
+        <img id="pi-7" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 49.5%; left: 54%;">
+        <img id="pi-8" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 49.5%; left: 78%;">
+        <img id="pi-9" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 67%; left: 8%;">
+        <img id="pi-10" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 67%; left: 31%;">
+        <img id="pi-11" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 67%; left: 54%;">
+        <img id="pi-12" class="book-icon" onclick="boxClicked(event)" src="lupa.png" style="top: 67%; left: 78%;">
+    </div>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(window).on('load', function(){
+        for(let i = 1; i < 25; i++){
+            let element = localStorage.getItem('pi-' + i);
+            if(element === 'on'){
+                $('#pi-'+i).addClass('on');
+            }
+        }
+    });
+
+    function boxClicked(event){
+        let box = $(event.target);
+        let id = box.attr('id');
+        if(box.hasClass('on')){
+            box.removeClass('on');
+            localStorage.removeItem(id);
+        } else {
+            box.addClass('on');
+            localStorage.setItem(id, "on");
+        }
+    }
+</script>
+<style>
+    .book-icon {
+        opacity: 0%;
+        height: 12%; 
+        position: absolute; 
+        cursor: pointer;
+    }
+
+    .book-icon.on {
+        opacity: 90%;
+    }
+</style>
