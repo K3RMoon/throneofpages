@@ -1,0 +1,185 @@
+<html>
+    <div class="container" style="height: fit-content; width: fit-content; position: relative">
+        <img src="tbr_template.png" style="width: 100%">
+        <div id="summer-tbr-prompt-1" class="tbr-prompt" style="top: 26.5%; left: 4%;" onclick="doneToggle(event)">
+            <img class="book-cover" src="book-cover-placeholder.png" alt="Book Cover">
+            <img class="complete hidden" src="complete.png" alt="Complete">
+            <div class="prompt-overlay"></div>
+            <div class="prompt-buttons">
+                <button class="clear-btn hidden" onclick="clearCover(event)" value="clear">Clear</button>
+                <button class="edit-btn" onclick="editCoverTrigger(event)" value="edit">Edit</button>
+            </div>
+            <input class="link-input hidden" onkeydown="updadteCover(event)" placeholder="Image Url Here">
+        </div>
+        <div id="summer-tbr-prompt-2" class="tbr-prompt" style="top: 26.5%; left: 35.5%;" onclick="doneToggle(event)">
+            <img class="book-cover" src="book-cover-placeholder.png" alt="Book Cover">
+            <img class="complete hidden" src="complete.png" alt="Complete">
+            <div class="prompt-overlay"></div>
+            <div class="prompt-buttons">
+                <button class="clear-btn hidden" onclick="clearCover(event)" value="clear">Clear</button>
+                <button class="edit-btn" onclick="editCoverTrigger(event)" value="edit">Edit</button>
+            </div>
+            <input class="link-input hidden" onkeydown="updadteCover(event)" placeholder="Image Url Here">
+        </div>
+        <div id="summer-tbr-prompt-3" class="tbr-prompt" style="top: 26.5%; left: 67%;" onclick="doneToggle(event)">
+            <img class="book-cover" src="book-cover-placeholder.png" alt="Book Cover">
+            <img class="complete hidden" src="complete.png" alt="Complete">
+            <div class="prompt-overlay"></div>
+            <div class="prompt-buttons">
+                <button class="clear-btn hidden" onclick="clearCover(event)" value="clear">Clear</button>
+                <button class="edit-btn" onclick="editCoverTrigger(event)" value="edit">Edit</button>
+            </div>
+            <input class="link-input hidden" onkeydown="updadteCover(event)" placeholder="Image Url Here">
+        </div>
+        <div id="summer-tbr-prompt-4" class="tbr-prompt" style="top: 59.2%; left: 4%;" onclick="doneToggle(event)">
+            <img class="book-cover" src="book-cover-placeholder.png" alt="Book Cover">
+            <img class="complete hidden" src="complete.png" alt="Complete">
+            <div class="prompt-overlay"></div>
+            <div class="prompt-buttons">
+                <button class="clear-btn hidden" onclick="clearCover(event)" value="clear">Clear</button>
+                <button class="edit-btn" onclick="editCoverTrigger(event)" value="edit">Edit</button>
+            </div>
+            <input class="link-input hidden" onkeydown="updadteCover(event)" placeholder="Image Url Here">
+        </div>
+        <div id="summer-tbr-prompt-5" class="tbr-prompt" style="top: 59.2%; left: 35.5%;" onclick="doneToggle(event)">
+            <img class="book-cover" src="book-cover-placeholder.png" alt="Book Cover">
+            <img class="complete hidden" src="complete.png" alt="Complete">
+            <div class="prompt-overlay"></div>
+            <div class="prompt-buttons">
+                <button class="clear-btn hidden" onclick="clearCover(event)" value="clear">Clear</button>
+                <button class="edit-btn" onclick="editCoverTrigger(event)" value="edit">Edit</button>
+            </div>
+            <input class="link-input hidden" onkeydown="updadteCover(event)" placeholder="Image Url Here">
+        </div>
+        <div id="summer-tbr-prompt-6" class="tbr-prompt" style="top: 59.2%; left: 67%;" onclick="doneToggle(event)">
+            <img class="book-cover" src="book-cover-placeholder.png" alt="Book Cover">
+            <img class="complete hidden" src="complete.png" alt="Complete">
+            <div class="prompt-overlay"></div>
+            <div class="prompt-buttons">
+                <button class="clear-btn hidden" onclick="clearCover(event)" value="clear">Clear</button>
+                <button class="edit-btn" onclick="editCoverTrigger(event)" value="edit">Edit</button>
+            </div>
+            <input class="link-input hidden" onkeydown="updadteCover(event)" placeholder="Image Url Here">
+        </div>
+    </div>
+</html>
+<style>
+    .tbr-prompt {
+        position: absolute; 
+        width: 29%; 
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .tbr-prompt>img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+    }
+
+    .prompt-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0;
+        top: 0;
+        padding: 2px;
+    }
+
+    .tbr-prompt:hover .prompt-overlay {
+        opacity: 0.2;
+    }
+
+    .prompt-buttons {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+    }
+
+    .tbr-prompt:hover .prompt-buttons {
+        opacity: 1;
+    }
+
+    .prompt-buttons button {
+        cursor: pointer;
+    }
+
+    .link-input {
+        position: absolute;
+        top: 50%;
+        width: 90%;
+    }
+
+    .complete {
+        max-width: 80%;
+        position: absolute;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+<script>
+    const updadteCover = (event) => {
+        if(event.key === 'Enter' || event.code === 'Enter' || event.keyCode === 13) {
+            const link = event.target.value;
+            if (link) {
+                event.target.parentElement.querySelector('.book-cover').setAttribute('src', link);
+                event.target.classList.add('hidden');
+                const editBtn = event.target.parentElement.querySelector('.edit-btn');
+                const clearBtn = event.target.parentElement.querySelector('.clear-btn');
+                clearBtn.classList.add('hidden');
+                editBtn.value = 'edit';
+                editBtn.innerHTML = 'Edit';
+                event.target.value = '';
+                localStorage.setItem(event.target.parentElement.id, link);
+            }
+        }
+    }
+
+    const editCoverTrigger = (event) => {
+        if(event.target.value === 'edit') {
+            event.target.parentElement.parentElement.querySelector('.link-input').classList.remove('hidden');
+            event.target.parentElement.querySelector('.clear-btn').classList.remove('hidden');
+            event.target.value = 'cancel';
+            event.target.innerHTML = 'Cancel';
+        } else {
+            event.target.parentElement.parentElement.querySelector('.link-input').classList.add('hidden');
+            event.target.parentElement.querySelector('.clear-btn').classList.add('hidden');
+            event.target.value = 'edit';
+            event.target.innerHTML = 'Edit';
+        }
+    }
+
+    const clearCover = (event) => {
+        event.target.parentElement.parentElement.querySelector('.book-cover').setAttribute('src', 'book-cover-placeholder.png');
+        localStorage.setItem(event.target.parentElement.parentElement.id, 'book-cover-placeholder.png');
+    }
+
+    const doneToggle = (event) => {
+        if (!event.target.classList.contains('link-input')) {
+            const completeImg = event.target.classList.contains('tbr-prompt')? event.target.querySelector('.complete') : event.target.parentElement.querySelector('.complete');
+            if (completeImg && completeImg.classList.contains('hidden')) {
+                completeImg.classList.remove('hidden');
+                localStorage.setItem(`${completeImg.parentElement.id}-complete`, true);
+            } else {
+                completeImg?.classList.add('hidden');
+                if (completeImg) localStorage.removeItem(`${completeImg.parentElement.id}-complete`);
+            }
+        }
+    }
+
+    window.addEventListener('load', () => {
+        for (let i = 1; i <= 6 ; i++) {
+            const tbrPromptEl = document.getElementById(`summer-tbr-prompt-${i}`);
+            tbrPromptEl.querySelector('.book-cover').setAttribute('src', localStorage.getItem(`summer-tbr-prompt-${i}`) || 'book-cover-placeholder.png');
+            if(localStorage.getItem(`summer-tbr-prompt-${i}-complete`))
+                tbrPromptEl.querySelector('.complete').classList.remove('hidden');
+        }
+    });
+</script>
