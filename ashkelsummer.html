@@ -1,0 +1,64 @@
+<html>
+    <div class="container" style="height: fit-content; width: fit-content; position: relative">
+        <img src="BingoforKel.png" style="width: 100%">
+        <img id="ashkel-1" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 28.4%; left: 10.2%;">
+        <img id="ashkel-2" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 28.4%; left: 27.2%;">
+        <img id="ashkel-3" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 28.4%; left: 44%;">
+        <img id="ashkel-4" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 28.4%; left: 60.9%;">
+        <img id="ashkel-5" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 28.4%; left: 77.8%;">
+        <img id="ashkel-6" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 42.5%; left: 10.2%;">
+        <img id="ashkel-7" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 42.5%; left: 27.2%;">
+        <img id="ashkel-8" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 42.5%; left: 44%;">
+        <img id="ashkel-9" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 42.5%; left: 60.9%;">
+        <img id="ashkel-10" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 42.5%; left: 77.8%;">
+        <img id="ashkel-11" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 56%; left: 10.2%;">
+        <img id="ashkel-12" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 56%; left: 27.2%;">
+        <img id="ashkel-13" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 56%; left: 60.9%;">
+        <img id="ashkel-14" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 56%; left: 77.8%;">
+        <img id="ashkel-15" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 69.5%; left: 10.2%;">
+        <img id="ashkel-16" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 69.5%; left: 27.2%;">
+        <img id="ashkel-17" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 69.5%; left: 44%;">
+        <img id="ashkel-18" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 69.5%; left: 60.9%;">
+        <img id="ashkel-19" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 69.5%; left: 77.8%;">
+        <img id="ashkel-20" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 83%; left: 10.2%;">
+        <img id="ashkel-21" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 83%; left: 27.2%;">
+        <img id="ashkel-22" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 83%; left: 44%;">
+        <img id="ashkel-23" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 83%; left: 60.9%;">
+        <img id="ashkel-24" class="bookmark-icon" onclick="boxClicked(event)" src="book-bookmark-icon-5.png" style="top: 83%; left: 77.8%;">
+    </div>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(window).on('load', function(){
+        for(let i = 1; i < 25; i++){
+            let element = localStorage.getItem('ashkel-' + i);
+            if(element === 'on'){
+                $('#ashkel-'+i).addClass('on');
+            }
+        }
+    });
+
+    function boxClicked(event){
+        let box = $(event.target);
+        let id = box.attr('id');
+        if(box.hasClass('on')){
+            box.removeClass('on');
+            localStorage.removeItem(id);
+        } else {
+            box.addClass('on');
+            localStorage.setItem(id, "on");
+        }
+    }
+</script>
+<style>
+    .bookmark-icon {
+        opacity: 0%;
+        width: 12%; 
+        position: absolute; 
+        cursor: pointer;
+    }
+
+    .bookmark-icon.on {
+        opacity: 60%;
+    }
+</style>
