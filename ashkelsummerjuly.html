@@ -1,0 +1,47 @@
+<html>
+    <div class="container" style="height: fit-content; width: fit-content; position: relative">
+        <img class="stamps-image" src="july-progress-board.jpeg" alt="Stamps" style="width: 100%">
+        <div id="progress-square-1" class="progress-square" style="top: 34.7%; left: 13.3%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-2" class="progress-square" style="top: 34.7%; left: 29.65%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-3" class="progress-square" style="top: 34.7%; left: 58.2%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-4" class="progress-square" style="top: 34.7%; left: 74.3%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-5" class="progress-square" style="top: 62.6%; left: 13.3%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-6" class="progress-square" style="top: 62.6%; left: 29.65%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-7" class="progress-square" style="top: 62.6%; left: 58.2%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-8" class="progress-square" style="top: 62.6%; left: 74.3%;" onclick="stampClicked(event)"></div>
+        <div id="progress-square-9" class="progress-square" style="top: 0.6%; left: 87.3%; background-color: #f2f2f2; width: 11%; height: 21%;" onclick="stampClicked(event)"></div>
+    </div>
+</html>
+<style>
+    .progress-square {
+        position: absolute;
+        width: 14.5%;
+        height: 26.5%;
+        background-color: #e8e3e0;
+        opacity: 0.9;
+        cursor: pointer;
+    }
+
+    .progress-square.hidden {
+        opacity: 0;
+    }
+</style>
+<script>
+    const stampClicked = (event) => {
+        if (event.target.classList.contains('hidden')) {
+            event.target.classList.remove('hidden');
+            localStorage.removeItem(event.target.id)
+        } else {
+            event.target.classList.add('hidden');
+            localStorage.setItem(event.target.id, true);
+        }
+    }
+
+    window.addEventListener('load', () => {
+        for (let i = 1; i <= 6; i++){
+            const stampId = `progress-square-${i}`;
+            if (localStorage.getItem(stampId))
+                document.getElementById(stampId).classList.add('hidden');
+        }
+    })
+</script>
