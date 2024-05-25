@@ -1,5 +1,8 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <html>
-    <div class="container" style="height: fit-content; width: fit-content; position: relative">
+    <div class="container" style="height: fit-content; width: fit-content; position: relative;">
         <img src="board.png" style="width: 100%">
         <!-- PIECE -->
         <img src="piece.png" class="piece hidden" id="piece">
@@ -45,8 +48,41 @@
         <div id="space-37" class="rotated-space" style="top: 61.5%; right: 0%;" onclick="movePiece(event)"></div>
         <div id="space-38" class="rotated-space" style="top: 69%; right: 0%;" onclick="movePiece(event)"></div>
         <div id="space-39" class="rotated-space" style="top: 77%; right: 0%;" onclick="movePiece(event)"></div>
+        <!-- DICE -->
+        <div class="dice" onclick="rollDice()">
+            <i id="die-1" class="die fa-solid fa-dice-one"></i>
+            <i id="die-2" class="die fa-solid fa-dice-one"></i>
+        </div>
 </html>
 <style>
+    .dice {
+        display: flex;
+        position: absolute;
+        justify-content: space-between;
+        right: 40%;
+        bottom: 30%;
+        width: 20%;
+        height: 10%;
+        cursor: pointer;
+    }
+
+    .die {
+        background-color: white;
+        border-radius: 15%;
+        height: calc(95vw / 10);
+        width: 48%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #909267;
+        font-size: calc(100vw / 10);
+    }
+
+    .dice:hover .die {
+        color: #757941;
+    }
+
     .large-space {
         position: absolute;
         width: 15.5%;
@@ -330,6 +366,59 @@
 
 </style>
 <script>
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    function mapNumber(num) {
+        switch (num) {
+            case 1:
+                return "one";
+                break;
+            case 2:
+                return "two";
+                break;
+            case 3:
+                return "three";
+                break;
+            case 4:
+                return "four";
+                break;
+            case 5:
+                return "five";
+                break;
+            case 6:
+                return "one";
+                break;
+        }
+    }
+
+    const rollDice = () => {
+        const num1 = getRndInteger(1, 6);
+        const num2 = getRndInteger(1, 6);
+        const sum = num1 + num2;
+
+        const numString1 = mapNumber(num1);
+        const numString2 = mapNumber(num2);
+
+        const die1 = document.getElementById('die-1');
+        const die2 = document.getElementById('die-2');
+        die1.setAttribute('class', `die fa-solid fa-dice-${numString1}`)
+        die2.setAttribute('class', `die fa-solid fa-dice-${numString2}`)
+
+        const pieceCurrentPos = localStorage.getItem('throneopoly-position') || "0";
+        currentPosNum = pieceCurrentPos === 'jail' ? 10 : Number.parseInt(pieceCurrentPos);
+
+        let newPos = currentPosNum + sum;
+        if (newPos > 39) {
+            newPos = newPos - 40;
+        }
+
+        const piece = document.getElementById('piece');
+        piece.setAttribute('class', `piece piece-pos-${newPos}`)
+        localStorage.setItem('throneopoly-position', newPos);
+    }
 
     const movePiece = (event) => {
         const spaceId = event.target.id;
