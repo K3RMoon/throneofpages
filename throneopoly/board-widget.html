@@ -1,7 +1,8 @@
 <html>
     <div class="container" style="height: fit-content; width: fit-content; position: relative">
         <img src="board.png" style="width: 100%">
-        <img src="piece.png" class="piece piece-pos-0" id="piece">
+        <!-- PIECE -->
+        <img src="piece.png" class="piece hidden" id="piece">
         <!-- SPACES -->
         <div id="space-0" class="large-space" style="right: 0%; bottom: 0%;" onclick="movePiece(event)"></div>
         <div id="space-1" class="normal-space" style="right: 15.5%; bottom: 0%;" onclick="movePiece(event)"></div>
@@ -52,6 +53,10 @@
         height: 15.5%;
     }
 
+    .hidden {
+        display: none;
+    }
+
     .normal-space {
         position: absolute;
         height: 15.5%;
@@ -85,7 +90,7 @@
     .piece {
         position: absolute;
         height: 14%;
-        /* opacity: 0.8; */
+        transition: all 0.5s linear;
     }
 
     .piece-pos-0 {
@@ -140,186 +145,186 @@
 
     .piece-pos-10 {
         bottom: 0%;
-        left: 0%;
+        right: 84.5%;
     }
 
     .piece-pos-11 {
         bottom: 11.5%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-12 {
         bottom: 19.5%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-13 {
         bottom: 27%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-14 {
         bottom: 35%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-15 {
         bottom: 42.5%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-16 {
         bottom: 50%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-17 {
         bottom: 58%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-18 {
         bottom: 65.5%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-19 {
         bottom: 73%;
-        left: 0%;
+        right: 84.5%;
         transform: rotate(90deg);
     }
 
     .piece-pos-20 {
-        top: 0%;
-        left: 0%;
+        bottom: 84.5%;
+        right: 84.5%;
         transform: rotate(135deg);
     }
 
     .piece-pos-21 {
-        top: 0%;
-        left: 11.5%;
+        bottom: 84.5%;
+        right: 74%;
         transform: rotate(180deg);
     }
 
     .piece-pos-22 {
-        top: 0%;
-        left: 19.5%;
+        bottom: 84.5%;
+        right: 66.5%;
         transform: rotate(180deg);
     }
 
     .piece-pos-23 {
-        top: 0%;
-        left: 27%;
+        bottom: 84.5%;
+        right: 59%;
         transform: rotate(180deg);
     }
 
     .piece-pos-24 {
-        top: 0%;
-        left: 35%;
+        bottom: 84.5%;
+        right: 51%;
         transform: rotate(180deg);
     }
 
     .piece-pos-25 {
-        top: 0%;
-        left: 42.5%;
+        bottom: 84.5%;
+        right: 43.5%;
         transform: rotate(180deg);
     }
 
     .piece-pos-26 {
-        top: 0%;
-        left: 50%;
+        bottom: 84.5%;
+        right: 36%;
         transform: rotate(180deg);
     }
 
     .piece-pos-27 {
-        top: 0%;
-        left: 58%;
+        bottom: 84.5%;
+        right: 28%;
         transform: rotate(180deg);
     }
 
     .piece-pos-28 {
-        top: 0%;
-        left: 65.5%;
+        bottom: 84.5%;
+        right: 20.5%;
         transform: rotate(180deg);
     }
 
     .piece-pos-29 {
-        top: 0%;
-        left: 73%;
+        bottom: 84.5%;
+        right: 12.5%;
         transform: rotate(180deg);
     }
 
     .piece-pos-30 {
-        top: 0%;
+        bottom: 86.5%;
         right: 0%;
-        transform: rotate(-135deg);
+        transform: rotate(225deg);
     }
 
     .piece-pos-31 {
-        top: 11.5%;
+        bottom: 74%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-32 {
-        top: 19.5%;
+        bottom: 66.5%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-33 {
-        top: 27%;
+        bottom: 59%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-34 {
-        top: 35%;
+        bottom: 51%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-35 {
-        top: 42.5%;
+        bottom: 43.5%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-36 {
-        top: 50%;
+        bottom: 36%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-37 {
-        top: 58%;
+        bottom: 28%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-38 {
-        top: 65.5%;
+        bottom: 20.5%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-39 {
-        top: 73%;
+        bottom: 12.5%;
         right: 0%;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
     }
 
     .piece-pos-jail {
         bottom: 3%;
-        left: 3%;
+        right: 81.5%;
         transform: rotate(45deg);
     }
 
@@ -339,6 +344,8 @@
         if(lastPosition) {
             const piece = document.getElementById('piece');
             piece.setAttribute('class', `piece piece-pos-${lastPosition}`)
+        } else {
+            piece.setAttribute('class', `piece piece-pos-0`)
         }
     });
 </script>
