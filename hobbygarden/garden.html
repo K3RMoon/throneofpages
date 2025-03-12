@@ -227,12 +227,17 @@
         localStorage.setItem(`${hobbyPlantId}-level`, currentCount);
 
         // Change the plant image src when the counter reaches 25
-        if (currentCount === 25) {
-            plantImage.src = `${hobbyPlantId}-1.png`;
+        if (currentCount < 25) {
+            plantImage.src = `Sprout.png`;
         }
 
         // Change the plant image src when the counter reaches 50
-        if (currentCount === 50) {
+        if (currentCount >= 25 && currentCount < 50) {
+            plantImage.src = `${hobbyPlantId}-1.png`;
+        }
+
+        // Change the plant image src when the counter reaches 100
+        if (currentCount >= 50 && currentCount < 100) {
             plantImage.src = `${hobbyPlantId}-2.png`;
         }
 
@@ -275,18 +280,23 @@
         localStorage.setItem(`${hobbyPlantId}-level`, currentCount);
 
         // Change the plant image src when the counter reaches 24
-        if (currentCount === 24) {
+        if (currentCount < 25) {
             plantImage.src = `Sprout.png`;
         }
 
         // Change the plant image src when the counter reaches 50
-        if (currentCount === 49) {
+        if (currentCount >= 25 && currentCount < 50) {
             plantImage.src = `${hobbyPlantId}-1.png`;
         }
 
         // Change the plant image src when the counter reaches 100
-        if (currentCount === 99) {
+        if (currentCount >= 50 && currentCount < 100) {
             plantImage.src = `${hobbyPlantId}-2.png`;
+        }
+
+        // Change the plant image src when the counter reaches 100
+        if (currentCount === 100) {
+            plantImage.src = `${hobbyPlantId}-3.png`;
         }
     }
 
