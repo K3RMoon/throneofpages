@@ -1,0 +1,334 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<html>
+    <div class="container" style="height: fit-content; width: fit-content; position: relative">
+        <!-- Background -->
+        <img src="Background.png" style="width: 100%">
+
+        <!-- Plants -->
+        <div class="plants-container">
+            <!-- Hobby Plant #1: Cherry Blossom -->
+            <div id="cherry-blossom" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #1</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown1 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+
+            <!-- Hobby Plant #2: Rose -->
+            <div id="rose" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #2</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown2 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+
+            <!-- Hobby Plant #3: Bonsai -->
+            <div id="bonsai" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #3</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown1 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+
+            <!-- Hobby Plant #4: Lavender -->
+            <div id="lavender" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #4</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown2 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+
+            <!-- Hobby Plant #5: Sunflower -->
+            <div id="sunflower" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #5</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown1 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+
+            <!-- Hobby Plant #6: Orchid -->
+            <div id="orchid" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #6</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown2 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+
+            <!-- Hobby Plant #7: Cactus -->
+            <div id="cactus" class="hobbyplant">
+                <div class="top-text" contenteditable="true">Hobby #7</div>
+                <img class="plant-image" src="Sprout.png" style="animation: moveUpDown1 1s infinite;">
+                <div class="buttons-container">
+                    <img class="left-button" src="left.png">
+                    <div class="counter-text">
+                        1
+                    </div>
+                    <img class="right-button" src="right.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
+<style>
+    @keyframes moveUpDown1 {
+        0% {
+            transform: translateY(0); /* Start at the original position */
+        }
+        50% {
+            transform: translateY(2px); /* Move 1px to the right */
+        }
+        100% {
+            transform: translateY(0); /* Return to the original position */
+        }
+    }
+
+    @keyframes moveUpDown2 {
+        0% {
+            transform: translateY(1px); /* Start at the original position */
+        }
+        50% {
+            transform: translateY(0); /* Move 1px to the right */
+        }
+        100% {
+            transform: translateY(1px); /* Return to the original position */
+        }
+    }
+
+    .plants-container {
+        position: absolute;
+        bottom: 0%;
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hobbyplant {
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+
+    .plant-image {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+    }
+
+    .top-text {
+        font-family: "Pixelify Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2vw;
+        width: 100%;
+        height: 10%;
+        text-align: center;
+    }
+
+    .buttons-container {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 15%;
+    }
+
+    .right-button, .left-button {
+        height: 100%;
+        width: auto;
+        cursor: pointer;
+        opacity: 70%;
+    }
+
+    .right-button:hover, .left-button:hover {
+        opacity: 100%;
+    }
+
+    .counter-text {
+        font-family: "Pixelify Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 2.5vw;
+        height: 100%;
+        text-align: center;
+        width: auto;
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+</style>
+<script>
+    // Function to increase the counter by 1 (max 100)
+    function increaseCounter(button) {
+        // Find the closest hobbyplant container
+        const hobbyPlantContainer = button.closest('.hobbyplant');
+        
+        // Get the id of the closest hobbyplant container
+        const hobbyPlantId = hobbyPlantContainer.id;
+        
+        // Find the counter text element and the plant image element
+        const counterText = hobbyPlantContainer.querySelector('.counter-text');
+        const plantImage = hobbyPlantContainer.querySelector('.plant-image');
+        
+        // Get the current counter value
+        let currentCount = parseInt(counterText.innerText);
+
+        // Increase the counter, ensuring it doesn't exceed 100
+        if (currentCount < 100) {
+            currentCount += 1;
+            counterText.innerText = currentCount;
+        }
+
+        // Save to Local Storage
+        localStorage.setItem(`${hobbyPlantId}-level`, currentCount);
+
+        // Change the plant image src when the counter reaches 25
+        if (currentCount === 25) {
+            plantImage.src = `${hobbyPlantId}-1.png`;
+        }
+
+        // Change the plant image src when the counter reaches 50
+        if (currentCount === 50) {
+            plantImage.src = `${hobbyPlantId}-2.png`;
+        }
+
+        // Change the plant image src when the counter reaches 100
+        if (currentCount === 100) {
+            plantImage.src = `${hobbyPlantId}-3.png`;
+        }
+    }
+
+    // Add event listeners to all the right buttons
+    const rightButtons = document.querySelectorAll('.right-button');
+    rightButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            increaseCounter(button);
+        });
+    });
+
+    // Function to increase the counter by 1 (max 100)
+    function decreaseCounter(button) {
+        // Find the closest hobbyplant container
+        const hobbyPlantContainer = button.closest('.hobbyplant');
+        
+        // Get the id of the closest hobbyplant container
+        const hobbyPlantId = hobbyPlantContainer.id;
+        
+        // Find the counter text element and the plant image element
+        const counterText = hobbyPlantContainer.querySelector('.counter-text');
+        const plantImage = hobbyPlantContainer.querySelector('.plant-image');
+        
+        // Get the current counter value
+        let currentCount = parseInt(counterText.innerText);
+
+        // Decrease the counter, ensuring it doesn't exceed 1
+        if (currentCount > 1) {
+            currentCount -= 1
+            counterText.innerText = currentCount;
+        }
+
+        // Save to Local Storage
+        localStorage.setItem(`${hobbyPlantId}-level`, currentCount);
+
+        // Change the plant image src when the counter reaches 24
+        if (currentCount === 25) {
+            plantImage.src = `Sprout.png`;
+        }
+
+        // Change the plant image src when the counter reaches 50
+        if (currentCount === 49) {
+            plantImage.src = `${hobbyPlantId}-1.png`;
+        }
+
+        // Change the plant image src when the counter reaches 100
+        if (currentCount === 99) {
+            plantImage.src = `${hobbyPlantId}-2.png`;
+        }
+    }
+
+    // Add event listeners to all the right buttons
+    const leftButtons = document.querySelectorAll('.left-button');
+    leftButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            decreaseCounter(button);
+        });
+    });
+
+     // Add event listener to all the top-text elements
+     document.querySelectorAll('.hobbyplant').forEach(function(element) {
+        const plantId = element.id;
+        const topTextEl = element.querySelector(".top-text")
+        topTextEl.addEventListener('input', function() {
+            localStorage.setItem(`${plantId}-title`, topTextEl.innerText)
+        });
+    });
+
+    // When the app loads
+    window.addEventListener('load', () => {
+        const hobbyPlants = [...document.querySelectorAll('.hobbyplant')];
+        hobbyPlants.forEach((plantElement) => {
+            const hobbyTitle = localStorage.getItem(`${plantElement.id}-title`);
+            if (hobbyTitle)
+                plantElement.querySelector(".top-text").innerHTML = hobbyTitle;
+
+            const hobbyLevel = localStorage.getItem(`${plantElement.id}-level`);
+            if (hobbyLevel) {
+                const levelNum = parseInt(hobbyLevel);
+                plantElement.querySelector('.counter-text').innerText = levelNum;
+
+                if (levelNum == 100)
+                    plantElement.querySelector('.plant-image').src = `${plantElement.id}-3.png`;
+                if (levelNum >= 50 && levelNum < 100)
+                    plantElement.querySelector('.plant-image').src = `${plantElement.id}-2.png`;
+                if (levelNum >= 25 && levelNum < 50)
+                    plantElement.querySelector('.plant-image').src = `${plantElement.id}-1.png`;
+                if (levelNum < 25)
+                    plantElement.querySelector('.plant-image').src = `Sprout.png`;
+            }
+        })
+    });
+</script>
